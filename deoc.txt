@@ -1,0 +1,72 @@
+$.getJSON("https://cors.io/?https://api.myglamapp.pl/api/categories?language=EN", function (file) {
+    
+    var html;
+    for (i = 0 ; i < file.data.length ; i++) {
+        html +=
+            file.data[i].id +'<br>'+
+            file.data[i].label +'<br>'+
+            file.data[i].description +'<br>'+
+            '<img src="http://'+ file.data[i].imagePath +'">'+'<br>';
+            
+      
+
+            document.getElementById("test").innerHTML = html;
+
+
+            for ( j = 0 ; j < file.data[i].Services.length ; j++) {
+              html +=
+                file.data[i].Services[j].id_service +'<br>'+
+                file.data[i].Services[j].label_service +'<br>'+
+                file.data[i].Services[j].description_service +'<br>' ; 
+
+                document.getElementById("test").innerHTML = html;
+            }
+
+        }
+
+        var A ; 
+       
+        for ( i = 0 ; i < file.data.length ; i++) {
+
+            if (i=0) {
+
+                A="active";  
+            }
+            
+           html+=
+
+           '<div class="carousel-item col-md-4 ' + A + '">' + 
+
+
+                '<div class="card">' +
+
+
+            '<img class="card-img-top img-fluid" src="http://'+ file.data[i].imagePath +'" >' +
+
+           '<div class="card-body text-center">'+
+             '<h4 class="text-center">Lashes&brows</h4>'+
+                    '<img src="title _line_section@1x.png"  alt="Responsive image">'+
+                    '<p class="text-center">-Event makeup<br>'+
+                                           '-Makeup workshop<br>'+
+                                          '-Makeup with test<br>'+
+                                          '-Nude makeup <br>'+
+                                           '-fashion makeup<br>'+
+                                           '-Our makeup artists.  </p>'+
+
+
+                                                    '</div> '+
+                                               ' </div> '+
+                                           '</div> ' ; 
+
+
+              console.log(file.data.length);
+           document.getElementById("test1").innerHTML = html;
+        }
+        
+
+});
+
+
+
+
+
